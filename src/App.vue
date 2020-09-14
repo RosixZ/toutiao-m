@@ -1,6 +1,5 @@
 <template>
 <div id="app">
-    <h1>TouTiaoWebApp</h1>
     <router-view />
 </div>
 </template>

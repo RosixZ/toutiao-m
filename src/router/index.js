@@ -4,7 +4,33 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-const routes = []
+const routes = [{
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login') //路由懒加载
+  },
+  {
+    path: '/',
+    component: () => import('@/views/layout/'),
+    children: [{
+      path: '', //默认子路由
+      name: 'home',
+      component: () => import('@/views/home/')
+    }, {
+      path: '/qa', //默认qa子路由
+      name: 'qa',
+      component: () => import('@/views/qa/')
+    }, {
+      path: '/vedio', //默认子路由
+      name: 'vedio',
+      component: () => import('@/views/vedio/')
+    }, {
+      path: '/personal', //默认子路由
+      name: 'personal',
+      component: () => import('@/views/personal/')
+    }]
+  }
+]
 
 const router = new VueRouter({
   routes
