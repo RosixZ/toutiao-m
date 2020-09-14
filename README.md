@@ -1,2 +1,0 @@
-# toutiao-m
-FristWebAppDemo
