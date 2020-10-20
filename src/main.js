@@ -8,11 +8,13 @@ import './styles/index.less'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
-//引入 自动设置 REM基准值
+// 引入 自动设置 REM基准值
 import 'amfe-flexible';
 
 Vue.config.productionTip = false
 
+// 注册过滤器
+import filter from './utils/dayjs'
 new Vue({
   router,
   store,

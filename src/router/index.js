@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const routes = [{
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login') //路由懒加载
+    component: () => import('@/views/login/') // 路由懒加载
   },
   {
     path: '/',
@@ -29,7 +29,21 @@ const routes = [{
       name: 'personal',
       component: () => import('@/views/personal/')
     }]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/search/')
+  },
+  {
+    //  配置动态路由
+    path: '/article/:articleId',
+    name: 'article',
+    component: () => import('@/views/article/'),
+    props: true
+
   }
+
 ]
 
 const router = new VueRouter({

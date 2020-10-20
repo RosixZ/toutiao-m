@@ -12,11 +12,16 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <van-cell
+        <article-item
+          v-for="(article, index) in articlesList"
+          :key="index"
+          :article="article"
+        />
+        <!-- <van-cell
           v-for="(article, index) in articlesList"
           :key="index"
           :title="article.title"
-        />
+        /> -->
       </van-list>
     </van-pull-refresh>
   </div>
@@ -24,6 +29,7 @@
 
 <script>
 import { getArticles } from '@/api/article'
+import ArticleItem from './article-item'
 export default {
   name: 'ArticleList',
   data() {
@@ -33,14 +39,17 @@ export default {
       finished: false,
       refreshing: false,
       timestamp: null,
-      refreshSuccessText: '已更新'
+      refreshSuccessText: '已更新',
     }
   },
   props: {
     channel: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
+  },
+  components: {
+    ArticleItem,
   },
   methods: {
     async onLoad() {
@@ -48,7 +57,7 @@ export default {
       const { data } = await getArticles({
         channel_id: this.channel.id,
         timestamp: this.timestamp || Date.now(),
-        with_top: 1
+        with_top: 1,
       })
 
       this.articlesList.push(...data.data.results)
@@ -65,7 +74,7 @@ export default {
       const { data } = await getArticles({
         channel_id: this.channel.id,
         timestamp: Date.now(),
-        with_top: 1
+        with_top: 1,
       })
 
       this.articlesList.unshift(...data.data.results)
@@ -74,8 +83,8 @@ export default {
 
       this.refreshing = false
       this.refreshSuccessText = `更新了${data.data.results.length}条数据`
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped lang="less">
