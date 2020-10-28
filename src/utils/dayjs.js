@@ -15,3 +15,8 @@ Vue.filter('relativeTime', value => {
     return dayjs(value).from(dayjs())
 })
 
+// 配置一个相对时间过滤器
+Vue.filter('dateTime', (value, format = 'YYYY-MM-DD HH:mm:ss') => {
+    return dayjs(value).format(format)
+})
+

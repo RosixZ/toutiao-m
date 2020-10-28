@@ -42,6 +42,14 @@ const routes = [{
     component: () => import('@/views/article/'),
     props: true
 
+  },
+  {
+    //  配置编辑用户信息
+    path: '/user/profile',
+    name: 'user-profile',
+    component: () => import('@/views/user-profile/'),
+    props: true
+
   }
 
 ]

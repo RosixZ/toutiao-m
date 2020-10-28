@@ -1,10 +1,10 @@
 <template>
-<div class="qa-container">问答环节</div>
+  <div class="qa-container">问答环节（暂未开放）</div>
 </template>
 
 <script>
 export default {
-    name: "QAIndex"
+  name: "QAIndex"
 };
 </script>
 

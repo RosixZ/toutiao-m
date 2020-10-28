@@ -27,6 +27,7 @@
     <!-- 添加频道 -->
     <van-cell center :border="false">
       <div slot="title" class="channel-title">推荐频道</div>
+      <div slot="label">点击进行添加</div>
     </van-cell>
     <van-grid :gutter="10">
       <van-grid-item
